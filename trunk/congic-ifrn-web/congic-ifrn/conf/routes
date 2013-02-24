@@ -8,8 +8,8 @@ GET     /                           controllers.Application.index()
 
 # Cadastro dos UsuÃ¡rios no Sistema
 
-#GET     /cadastro-professor-servidor                        controllers.ProfessoresServidores.formulario()
-#POST 	/cadastro-professor-servidor      					controllers.ProfessoresServidores.cadastrar()
+GET     /cadastro-professor                                  controllers.Professores.formulario()
+POST 	/cadastro-professor                 				 controllers.Professores.cadastrar()
 #GET     /cadastro-bolsista                                  controllers.Bolsistas.formulario()
 #POST    /cadastro-bolsista                                  controllers.Bolsistas.cadastrar()
 #GET     /cadastro-avaliador                                 controllers.Avaliadores.formulario()
@@ -17,12 +17,12 @@ GET     /                           controllers.Application.index()
 
 
 # Sistema de Login
-#GET     /acesso              		        				controllers.Sessions.login()
-#POST    /acessar-minha-conta        		 				controllers.Sessions.efetuarLogin()
-#GET     /sair-do-sistema            						controllers.Sessions.efetuarlogout()
+GET     /acesso              		        				controllers.Sessions.login()
+POST    /acessar-minha-conta        		 				controllers.Sessions.efetuarLogin()
+GET     /sair-do-sistema            						controllers.Sessions.efetuarlogout()
 
 # AdministraÃ§Ã£o do Sistema
-#GET     /administracao/admin								controllers.Administracao.index()
+GET     /administracao/admin								controllers.Administracao.index()
 
 
 # Campus
@@ -64,15 +64,15 @@ GET     /                           controllers.Application.index()
 
 
 # AdministraÃ§Ã£o do Professor
-#GET 	/administracao/professor							controllers.Professores.index()
+GET 	/administracao/professor							controllers.Professores.index()
 
 
 # AdministraÃ§Ã£o do Bolsista
-#GET     /administracao/bolsista                            controllers.Bolsistas.index()
+GET     /administracao/bolsista                            controllers.Bolsistas.index()
 
 
 # AdministraÃ§Ã£o do Servidor
-#GET     /administracao/servidor                            controllers.Servidores.index()
+GET     /administracao/servidor                            controllers.Servidores.index()
 
 
 
