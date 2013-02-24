@@ -5,5 +5,77 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+
+# Cadastro dos UsuÃ¡rios no Sistema
+
+#GET     /cadastro-professor-servidor                        controllers.ProfessoresServidores.formulario()
+#POST 	/cadastro-professor-servidor      					controllers.ProfessoresServidores.cadastrar()
+#GET     /cadastro-bolsista                                  controllers.Bolsistas.formulario()
+#POST    /cadastro-bolsista                                  controllers.Bolsistas.cadastrar()
+#GET     /cadastro-avaliador                                 controllers.Avaliadores.formulario()
+#POST    /cadastro-avaliador                                 controllers.Avaliadores.cadastrar()
+
+
+# Sistema de Login
+#GET     /acesso              		        				controllers.Sessions.login()
+#POST    /acessar-minha-conta        		 				controllers.Sessions.efetuarLogin()
+#GET     /sair-do-sistema            						controllers.Sessions.efetuarlogout()
+
+# AdministraÃ§Ã£o do Sistema
+#GET     /administracao/admin								controllers.Administracao.index()
+
+
+# Campus
+#GET     /administracao/campus                               controllers.CampusController.index()
+#GET 	/administracao/campus/:id/visualizar				controllers.CampusController.visualizar(id: Long)
+
+
+# Artigos
+#GET 	/administracao/artigos								controllers.Artigos.index()
+#GET 	/administracao/artigos/submeter					    controllers.Artigos.formulario()
+#POST 	/administracao/artigos/submeter					    controllers.Artigos.submeter()
+#GET 	/administracao/artigos/:id/visualizar				controllers.Artigos.visualizar(id: Long)
+#GET    /administracao/artigos/avaliados           		    controllers.Artigos.meusArtigosAvaliados()
+#GET    /administracao/artigos/meus-projetos         		controllers.Artigos.meusArtigos()
+
+
+# Administracao dos Artigos
+#GET 	/administracao/artigos/:id/editar					controllers.Artigos.formularioEdicao(id: Long)
+#POST 	/administracao/artigos/:id/editar					controllers.Artigos.editar(id: Long)
+#GET 	/administracao/artigos/:id/excluir					controllers.Artigos.deletar(id: Long)
+#GET     /administracao/artigos/:id/avaliar                 controllers.Artigos.formularioAvaliacao(id: Long)
+#POST    /administracao/artigos/avaliar                     controllers.Artigos.avaliacaoArtigo(id: Long)
+
+
+# AdministraÃ§Ã£o dos Campus
+#GET 	/administracao/campus/cadastro						controllers.CampusController.formulario()
+#POST 	/administracao/campus/cadastro						controllers.CampusController.cadastrar()
+#GET 	/administracao/campus/:id/editar					controllers.CampusController.formularioEdicao(id: Long)
+#POST 	/administracao/campus/:id/editar					controllers.CampusController.editar(id: Long)
+#GET 	/administracao/campus/:id/excluir					controllers.CampusController.deletar(id: Long)
+
+
+# AdministraÃ§Ã£o dos Professores, Servidores, Bolsistas
+#GET     /administracao/professores/listagem-professores     controllers.Professores.listaProfessores()
+#GET 	/administracao/professores/:id/editar				controllers.Professores.formularioEdicao(id: Long)
+#POST 	/administracao/professores/:id/editar				controllers.Professores.editar(id: Long)
+#GET 	/administracao/professores/:id/deletar				controllers.Professores.deletar(id: Long)
+
+
+
+# AdministraÃ§Ã£o do Professor
+#GET 	/administracao/professor							controllers.Professores.index()
+
+
+# AdministraÃ§Ã£o do Bolsista
+#GET     /administracao/bolsista                            controllers.Bolsistas.index()
+
+
+# AdministraÃ§Ã£o do Servidor
+#GET     /administracao/servidor                            controllers.Servidores.index()
+
+
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
