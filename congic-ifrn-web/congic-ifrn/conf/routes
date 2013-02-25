@@ -48,7 +48,7 @@ GET 	/administracao/artigos/submeter					    controllers.Artigos.formulario()
 POST 	/administracao/artigos/submeter					    controllers.Artigos.submeter()
 GET 	/administracao/artigos/:id/visualizar				controllers.Artigos.visualizar(id: Long)
 GET		/administracao/artigos/avaliados           		    controllers.Artigos.meusArtigosAvaliados()
-GET 	/administracao/artigos/meus-artigos         		    controllers.Artigos.meusArtigos() 
+GET 	/administracao/artigos/meus-artigos         		controllers.Artigos.meusArtigos() 
 
 # Administracao dos Artigos
 #GET 	/administracao/artigos/:id/editar					controllers.Artigos.formularioEdicao(id: Long)
