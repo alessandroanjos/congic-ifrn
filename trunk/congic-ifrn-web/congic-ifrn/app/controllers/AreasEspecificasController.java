@@ -9,6 +9,10 @@ public class AreasEspecificasController extends Controller{
 		return TODO;
 	}
 	
+	public static Result visualizar(Long id){
+		return TODO;
+	}
+	
 	public static Result formulario() {
 		return TODO;
 	}
