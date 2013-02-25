@@ -90,20 +90,23 @@ public class Artigo extends Model{
 	public List<ArtigoAvaliado> progressoArtigo;
 	
 	public int usuarioAvaliar;
+	 
+	@Lob      
+     @Basic
+     @Column(name="arquivo", columnDefinition="BLOB NOT NULL")
+     public byte[] arquivo;
+ 
 	
 	public Artigo(){
 		
 		this.progressoArtigo = new ArrayList<ArtigoAvaliado>();
+		//this.arquivo = new byte[1024];
 	}
 	
 	/*
 	 *http://docs.oracle.com/javaee/6/api/javax/persistence/Lob.html
 	 */
-	     @Lob 
-	     @Basic
-   		 @Column(name="arquivo", columnDefinition="BLOB NOT NULL")
-         public byte[] arquivo;
-	 
+	    
 	
 	
 
