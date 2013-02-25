@@ -10,7 +10,8 @@
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li>
-						<a href="@routes.Application.index" style="font-size: 20px;">SIGEPI</a>
+						@*<a href="@routes.Application.index" style="font-size: 16px;">SIGEPi</a>*@
+						<a href="@routes.Application.index"><img height="8%"; width="8%"; align="left"; border="0"; src="@routes.Assets.at("images/sigepi(branco).png")"; alt="sigepi"; title="SIGEPi: Sistema de Gestão de Pesquisa e Inovação"; /></a>
 					</li>
 					<li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Sobre
@@ -88,10 +89,12 @@
 								
 								@{new java.util.Date().format("yyyy")}
 								
-					</a>
+						</a>
 					</li>
 					<li class="divider-vertical"></li>
-					<li><a href="@routes.Sessions.login">Entrar no Sistema</a></li>
+					<li>
+						<a href="@routes.Sessions.login">Entrar no Sistema</a>
+					</li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

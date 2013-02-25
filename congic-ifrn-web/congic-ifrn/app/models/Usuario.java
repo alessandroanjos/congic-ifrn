@@ -87,19 +87,11 @@ public class Usuario extends Model{
 	public boolean isBolsista;
 	public boolean isAtivo;
 	
-	
-	
 	public Usuario() {
-		
 		this.isAtivo = false;
 		this.progresso = new ArrayList<ArtigoAvaliado>();
 		this.artigos = new ArrayList<Artigo>();
-		
 	}
-
-	
-	
-	
 	
 	public Long getId() {
 		return id;
@@ -260,17 +252,8 @@ public class Usuario extends Model{
 	public void setAtivo(boolean isAtivo) {
 		this.isAtivo = isAtivo;
 	}
-	
-	
-	
- 
-
-
 
 public static Finder<Long, Usuario> find = new Finder<Long, Usuario>(Long.class, Usuario.class);
-
-	
-	
 	/**
 	 * MÃ©todo <strong>Save()</strong> sobrescrito para criptografar 
 	 * a senha do usuÃ¡rio antes de enviar para o banco de dados.
@@ -284,8 +267,7 @@ public static Finder<Long, Usuario> find = new Finder<Long, Usuario>(Long.class,
 			
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		super.save();
 	}
 	

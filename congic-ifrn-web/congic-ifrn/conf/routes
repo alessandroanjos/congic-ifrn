@@ -3,18 +3,15 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-
+GET     /                           						controllers.Application.index()
 
 # Cadastro dos UsuÃ¡rios no Sistema
-
-GET     /cadastro-professor                                  controllers.Professores.formulario()
-POST 	/cadastro-professor                 				 controllers.Professores.cadastrar()
-#GET     /cadastro-bolsista                                  controllers.Bolsistas.formulario()
-#POST    /cadastro-bolsista                                  controllers.Bolsistas.cadastrar()
-#GET     /cadastro-avaliador                                 controllers.Avaliadores.formulario()
-#POST    /cadastro-avaliador                                 controllers.Avaliadores.cadastrar()
-
+GET    	/cadastro-professor                               	controllers.Professores.formulario()
+POST 	/cadastro-professor                 				controllers.Professores.cadastrar()
+#GET   	/cadastro-bolsista                              	controllers.Bolsistas.formulario()
+#POST	/cadastro-bolsista                             	controllers.Bolsistas.cadastrar()
+#GET  	/cadastro-avaliador                              	controllers.Avaliadores.formulario()
+#POST 	/cadastro-avaliador                             	controllers.Avaliadores.cadastrar()
 
 # Sistema de Login
 GET     /acesso              		        				controllers.Sessions.login()
@@ -23,50 +20,42 @@ GET     /sair-do-sistema            						controllers.Sessions.efetuarlogout()
 
 # AdministraÃ§Ã£o do Sistema
 GET     /administracao/admin								controllers.Administracao.index()
-#POST     /administracao/arquivo                              controllers.Administracao.save()
-
+#POST  	/administracao/arquivo                          	controllers.Administracao.save()
 
 # Campus
 GET     /administracao/campus                               controllers.CampusController.index()
 GET 	/administracao/campus/:id/visualizar				controllers.CampusController.visualizar(id: Long)
 
-
 # Grupos de Pesquisa
-GET     /administracao/grupo-pesquisa                               controllers.GrupoPesquisaController.index()
-GET 	/administracao/grupo-pesquisa/:id/visualizar				controllers.GrupoPesquisaController.visualizar(id: Long)
-
+GET     /administracao/grupo-pesquisa                     	controllers.GrupoPesquisaController.index()
+GET 	/administracao/grupo-pesquisa/:id/visualizar		controllers.GrupoPesquisaController.visualizar(id: Long)
 
 # Programas de Bolsas
-GET     /administracao/programas-bolsas                             controllers.Bolsas.index()
-GET 	/administracao/programas-bolsas/:id/visualizar				controllers.Bolsas.visualizar(id: Long)
-
+GET     /administracao/programas-bolsas                    	controllers.Bolsas.index()
+GET 	/administracao/programas-bolsas/:id/visualizar		controllers.Bolsas.visualizar(id: Long)
 
 # Areas de Conhecimento
-GET     /administracao/area-conhecimento                            controllers.AreasConhecimentoController.index()
-GET 	/administracao/area-conhecimento/:id/visualizar				controllers.AreasConhecimentoController.visualizar(id: Long)
-
+GET     /administracao/area-conhecimento               		controllers.AreasConhecimentoController.index()
+GET 	/administracao/area-conhecimento/:id/visualizar		controllers.AreasConhecimentoController.visualizar(id: Long)
 
 # Areas Específicas de conhecimento
-GET     /administracao/area-especificas                             controllers.AreasEspecificasController.index()
-GET 	/administracao/area-especificas/:id/visualizar				controllers.AreasEspecificasController.visualizar(id: Long)
-
+GET     /administracao/area-especificas                   	controllers.AreasEspecificasController.index()
+GET 	/administracao/area-especificas/:id/visualizar		controllers.AreasEspecificasController.visualizar(id: Long)
 
 # Artigos
 GET 	/administracao/artigos								controllers.Artigos.index()
 GET 	/administracao/artigos/submeter					    controllers.Artigos.formulario()
 POST 	/administracao/artigos/submeter					    controllers.Artigos.submeter()
 GET 	/administracao/artigos/:id/visualizar				controllers.Artigos.visualizar(id: Long)
-GET    /administracao/artigos/avaliados           		    controllers.Artigos.meusArtigosAvaliados()
-GET    /administracao/artigos/meus-artigos         		    controllers.Artigos.meusArtigos() 
-
+GET		/administracao/artigos/avaliados           		    controllers.Artigos.meusArtigosAvaliados()
+GET 	/administracao/artigos/meus-artigos         		    controllers.Artigos.meusArtigos() 
 
 # Administracao dos Artigos
 #GET 	/administracao/artigos/:id/editar					controllers.Artigos.formularioEdicao(id: Long)
 #POST 	/administracao/artigos/:id/editar					controllers.Artigos.editar(id: Long)
 #GET 	/administracao/artigos/:id/excluir					controllers.Artigos.deletar(id: Long)
-#GET     /administracao/artigos/:id/avaliar                 controllers.Artigos.formularioAvaliacao(id: Long)
-#POST    /administracao/artigos/avaliar                     controllers.Artigos.avaliacaoArtigo(id: Long)
-
+#GET  	/administracao/artigos/:id/avaliar                 controllers.Artigos.formularioAvaliacao(id: Long)
+#POST 	/administracao/artigos/avaliar                     controllers.Artigos.avaliacaoArtigo(id: Long)
 
 # AdministraÃ§Ã£o dos Campus
 GET 	/administracao/campus/cadastro						controllers.CampusController.formulario()
@@ -75,62 +64,48 @@ GET 	/administracao/campus/:id/editar					controllers.CampusController.formulari
 POST 	/administracao/campus/:id/editar					controllers.CampusController.editar(id: Long)
 GET 	/administracao/campus/:id/excluir					controllers.CampusController.deletar(id: Long)
 
-
 # AdministraÃ§Ã£o dos Grupos de Pesquisa
-GET 	/administracao/grupo-pesquisa/cadastro						controllers.GrupoPesquisaController.formulario()
-POST 	/administracao/grupo-pesquisa/cadastro						controllers.GrupoPesquisaController.cadastrar()
-GET 	/administracao/grupo-pesquisa/:id/editar					controllers.GrupoPesquisaController.formularioEdicao(id: Long)
-POST 	/administracao/grupo-pesquisa/:id/editar					controllers.GrupoPesquisaController.editar(id: Long)
-GET 	/administracao/grupo-pesquisa/:id/excluir					controllers.GrupoPesquisaController.deletar(id: Long)
-
+GET 	/administracao/grupo-pesquisa/cadastro				controllers.GrupoPesquisaController.formulario()
+POST 	/administracao/grupo-pesquisa/cadastro				controllers.GrupoPesquisaController.cadastrar()
+GET 	/administracao/grupo-pesquisa/:id/editar			controllers.GrupoPesquisaController.formularioEdicao(id: Long)
+POST 	/administracao/grupo-pesquisa/:id/editar			controllers.GrupoPesquisaController.editar(id: Long)
+GET 	/administracao/grupo-pesquisa/:id/excluir			controllers.GrupoPesquisaController.deletar(id: Long)
 
 # Administração dos Programas de Bolsas
-GET 	/administracao/programas-bolsas/cadastro					controllers.Bolsas.formulario()
-POST 	/administracao/programas-bolsas/cadastro					controllers.Bolsas.cadastrar()
-GET 	/administracao/programas-bolsas/:id/editar					controllers.Bolsas.formularioEdicao(id: Long)
-POST 	/administracao/programas-bolsas/:id/editar					controllers.Bolsas.editar(id: Long)
-GET 	/administracao/programas-bolsas/:id/excluir					controllers.Bolsas.deletar(id: Long)
-
+GET 	/administracao/programas-bolsas/cadastro			controllers.Bolsas.formulario()
+POST 	/administracao/programas-bolsas/cadastro			controllers.Bolsas.cadastrar()
+GET 	/administracao/programas-bolsas/:id/editar			controllers.Bolsas.formularioEdicao(id: Long)
+POST 	/administracao/programas-bolsas/:id/editar			controllers.Bolsas.editar(id: Long)
+GET 	/administracao/programas-bolsas/:id/excluir			controllers.Bolsas.deletar(id: Long)
 
 # AdministraÃ§Ã£o das Areas de Conhecimento
-GET 	/administracao/area-conhecimento/cadastro					controllers.AreasConhecimentoController.formulario()
-POST 	/administracao/area-conhecimento/cadastro					controllers.AreasConhecimentoController.cadastrar()
-GET 	/administracao/area-conhecimento/:id/editar					controllers.AreasConhecimentoController.formularioEdicao(id: Long)
-POST 	/administracao/area-conhecimento/:id/editar					controllers.AreasConhecimentoController.editar(id: Long)
-GET 	/administracao/area-conhecimento/:id/excluir				controllers.AreasConhecimentoController.deletar(id: Long)
-
+GET 	/administracao/area-conhecimento/cadastro			controllers.AreasConhecimentoController.formulario()
+POST 	/administracao/area-conhecimento/cadastro			controllers.AreasConhecimentoController.cadastrar()
+GET 	/administracao/area-conhecimento/:id/editar			controllers.AreasConhecimentoController.formularioEdicao(id: Long)
+POST 	/administracao/area-conhecimento/:id/editar			controllers.AreasConhecimentoController.editar(id: Long)
+GET 	/administracao/area-conhecimento/:id/excluir		controllers.AreasConhecimentoController.deletar(id: Long)
 
 # AdministraÃ§Ã£o das Areas de Especificas de Conhecimento
-GET 	/administracao/area-especificas/cadastro					controllers.AreasEspecificasController.formulario()
-POST 	/administracao/area-especificas/cadastro					controllers.AreasEspecificasController.cadastrar()
-GET 	/administracao/area-especificas/:id/editar					controllers.AreasEspecificasController.formularioEdicao(id: Long)
-POST 	/administracao/area-especificas/:id/editar					controllers.AreasEspecificasController.editar(id: Long)
-GET 	/administracao/area-especificas/:id/excluir				    controllers.AreasEspecificasController.deletar(id: Long)
-
-
-
+GET 	/administracao/area-especificas/cadastro			controllers.AreasEspecificasController.formulario()
+POST 	/administracao/area-especificas/cadastro			controllers.AreasEspecificasController.cadastrar()
+GET 	/administracao/area-especificas/:id/editar			controllers.AreasEspecificasController.formularioEdicao(id: Long)
+POST 	/administracao/area-especificas/:id/editar			controllers.AreasEspecificasController.editar(id: Long)
+GET 	/administracao/area-especificas/:id/excluir		    controllers.AreasEspecificasController.deletar(id: Long)
 
 # AdministraÃ§Ã£o dos Professores, Servidores, Bolsistas
-#GET     /administracao/professores/listagem-professores     controllers.Professores.listaProfessores()
+#GET  	/administracao/professores/listagem-professores    controllers.Professores.listaProfessores()
 #GET 	/administracao/professores/:id/editar				controllers.Professores.formularioEdicao(id: Long)
 #POST 	/administracao/professores/:id/editar				controllers.Professores.editar(id: Long)
 #GET 	/administracao/professores/:id/deletar				controllers.Professores.deletar(id: Long)
 
-
-
 # AdministraÃ§Ã£o do Professor
 GET 	/administracao/professor							controllers.Professores.index()
 
-
 # AdministraÃ§Ã£o do Bolsista
-GET     /administracao/bolsista                            controllers.Bolsistas.index()
-
+GET     /administracao/bolsista                         	controllers.Bolsistas.index()
 
 # AdministraÃ§Ã£o do Servidor
-GET     /administracao/servidor                            controllers.Servidores.index()
-
-
-
+GET     /administracao/servidor                            	controllers.Servidores.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file               						controllers.Assets.at(path="/public", file)
