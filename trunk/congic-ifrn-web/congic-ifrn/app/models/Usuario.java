@@ -86,6 +86,8 @@ public class Usuario extends Model{
 	public boolean isBolsista;
 	public boolean isAtivo;
 	
+	public int usuarioAvaliar;
+	
 	public Usuario() {
 		
 		this.isAtivo = false;
@@ -260,7 +262,21 @@ public class Usuario extends Model{
 	
 	
 	
-   public static Finder<Long, Usuario> find = new Finder<Long, Usuario>(Long.class, Usuario.class);
+   public int getUsuarioAvaliar() {
+		return usuarioAvaliar;
+	}
+
+
+
+
+
+	public void setUsuarioAvaliar(int usuarioAvaliar) {
+		this.usuarioAvaliar = usuarioAvaliar;
+	}
+
+
+
+public static Finder<Long, Usuario> find = new Finder<Long, Usuario>(Long.class, Usuario.class);
 
 	
 	
