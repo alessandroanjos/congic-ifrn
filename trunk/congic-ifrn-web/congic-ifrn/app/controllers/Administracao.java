@@ -15,7 +15,7 @@ import play.mvc.Result;
 public class Administracao extends Controller {
 
 	public static Result index() {
-		return ok(views.html.Administrador.arquivo.render());
+		return ok(views.html.Administrador.index.render());
 	}
 
 	public static Result save() {

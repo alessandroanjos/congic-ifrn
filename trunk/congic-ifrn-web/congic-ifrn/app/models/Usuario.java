@@ -3,6 +3,7 @@ package models;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +53,7 @@ public class Usuario extends Model{
 	public String sexo;
 	
 	@Temporal(TemporalType.DATE)
-	public Date	dataNascimento;
+	public String dataNascimento;
 	
 	@Required(message="O campo deve ser preenchido.")
 	@Column(unique=true)
@@ -86,7 +87,7 @@ public class Usuario extends Model{
 	public boolean isBolsista;
 	public boolean isAtivo;
 	
-	public int usuarioAvaliar;
+	
 	
 	public Usuario() {
 		
@@ -148,11 +149,11 @@ public class Usuario extends Model{
 		this.sexo = sexo;
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public String getDataNascimento() {
+		return new SimpleDateFormat("dd/MM/yyyy").format(dataNascimento);
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -262,17 +263,7 @@ public class Usuario extends Model{
 	
 	
 	
-   public int getUsuarioAvaliar() {
-		return usuarioAvaliar;
-	}
-
-
-
-
-
-	public void setUsuarioAvaliar(int usuarioAvaliar) {
-		this.usuarioAvaliar = usuarioAvaliar;
-	}
+ 
 
 
 

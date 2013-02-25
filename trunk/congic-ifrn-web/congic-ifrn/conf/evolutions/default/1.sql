@@ -35,6 +35,7 @@ create table artigo (
   objetivos                 longtext,
   metodologia               longtext,
   referencias               longtext,
+  usuario_avaliar           integer,
   arquivo                   BLOB NOT NULL,
   constraint pk_artigo primary key (id))
 ;
@@ -76,7 +77,7 @@ create table usuario (
   nome                      varchar(255),
   cpf                       varchar(255),
   sexo                      varchar(255),
-  data_nascimento           datetime,
+  data_nascimento           varchar(255),
   email                     varchar(255),
   telefone                  varchar(255),
   campus_id                 bigint,
@@ -88,7 +89,6 @@ create table usuario (
   is_administrador          tinyint(1) default 0,
   is_bolsista               tinyint(1) default 0,
   is_ativo                  tinyint(1) default 0,
-  usuario_avaliar           integer,
   constraint uq_usuario_login unique (login),
   constraint uq_usuario_email unique (email),
   constraint pk_usuario primary key (id))

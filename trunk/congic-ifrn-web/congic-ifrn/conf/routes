@@ -23,7 +23,7 @@ GET     /sair-do-sistema            						controllers.Sessions.efetuarlogout()
 
 # AdministraÃ§Ã£o do Sistema
 GET     /administracao/admin								controllers.Administracao.index()
-POST     /administracao/arquivo                              controllers.Administracao.save()
+#POST     /administracao/arquivo                              controllers.Administracao.save()
 
 
 # Campus
