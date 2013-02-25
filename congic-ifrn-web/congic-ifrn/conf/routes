@@ -40,15 +40,20 @@ GET     /administracao/programas-bolsas                             controllers.
 GET 	/administracao/programas-bolsas/:id/visualizar				controllers.Bolsas.visualizar(id: Long)
 
 
+# Areas de Conhecimento
+GET     /administracao/area-conhecimento                            controllers.AreasConhecimentoController.index()
+GET 	/administracao/area-conhecimento/:id/visualizar				controllers.AreasConhecimentoController.visualizar(id: Long)
+
+
 
 
 # Artigos
-#GET 	/administracao/artigos								controllers.Artigos.index()
-#GET 	/administracao/artigos/submeter					    controllers.Artigos.formulario()
-#POST 	/administracao/artigos/submeter					    controllers.Artigos.submeter()
-#GET 	/administracao/artigos/:id/visualizar				controllers.Artigos.visualizar(id: Long)
-#GET    /administracao/artigos/avaliados           		    controllers.Artigos.meusArtigosAvaliados()
-#GET    /administracao/artigos/meus-projetos         		controllers.Artigos.meusArtigos()
+GET 	/administracao/artigos								controllers.Artigos.index()
+GET 	/administracao/artigos/submeter					    controllers.Artigos.formulario()
+POST 	/administracao/artigos/submeter					    controllers.Artigos.submeter()
+GET 	/administracao/artigos/:id/visualizar				controllers.Artigos.visualizar(id: Long)
+GET    /administracao/artigos/avaliados           		    controllers.Artigos.meusArtigosAvaliados()
+GET    /administracao/artigos/meus-artigos         		    controllers.Artigos.meusArtigos() 
 
 
 # Administracao dos Artigos
@@ -82,6 +87,13 @@ GET 	/administracao/programas-bolsas/:id/editar					controllers.Bolsas.formulari
 POST 	/administracao/programas-bolsas/:id/editar					controllers.Bolsas.editar(id: Long)
 GET 	/administracao/programas-bolsas/:id/excluir					controllers.Bolsas.deletar(id: Long)
 
+
+# AdministraÃ§Ã£o das Areas de Conhecimento
+GET 	/administracao/area-conhecimento/cadastro					controllers.AreasConhecimentoController.formulario()
+POST 	/administracao/area-conhecimento/cadastro					controllers.AreasConhecimentoController.cadastrar()
+GET 	/administracao/area-conhecimento/:id/editar					controllers.AreasConhecimentoController.formularioEdicao(id: Long)
+POST 	/administracao/area-conhecimento/:id/editar					controllers.AreasConhecimentoController.editar(id: Long)
+GET 	/administracao/area-conhecimento/:id/excluir				controllers.AreasConhecimentoController.deletar(id: Long)
 
 
 # AdministraÃ§Ã£o dos Professores, Servidores, Bolsistas
