@@ -26,8 +26,20 @@ GET     /administracao/admin								controllers.Administracao.index()
 
 
 # Campus
-#GET     /administracao/campus                               controllers.CampusController.index()
-#GET 	/administracao/campus/:id/visualizar				controllers.CampusController.visualizar(id: Long)
+GET     /administracao/campus                               controllers.CampusController.index()
+GET 	/administracao/campus/:id/visualizar				controllers.CampusController.visualizar(id: Long)
+
+
+# Grupos de Pesquisa
+GET     /administracao/grupo-pesquisa                               controllers.GrupoPesquisaController.index()
+GET 	/administracao/grupo-pesquisa/:id/visualizar				controllers.GrupoPesquisaController.visualizar(id: Long)
+
+
+# Programas de Bolsas
+GET     /administracao/programas-bolsas                             controllers.Bolsas.index()
+GET 	/administracao/programas-bolsas/:id/visualizar				controllers.Bolsas.visualizar(id: Long)
+
+
 
 
 # Artigos
@@ -48,11 +60,28 @@ GET     /administracao/admin								controllers.Administracao.index()
 
 
 # AdministraÃ§Ã£o dos Campus
-#GET 	/administracao/campus/cadastro						controllers.CampusController.formulario()
-#POST 	/administracao/campus/cadastro						controllers.CampusController.cadastrar()
-#GET 	/administracao/campus/:id/editar					controllers.CampusController.formularioEdicao(id: Long)
-#POST 	/administracao/campus/:id/editar					controllers.CampusController.editar(id: Long)
-#GET 	/administracao/campus/:id/excluir					controllers.CampusController.deletar(id: Long)
+GET 	/administracao/campus/cadastro						controllers.CampusController.formulario()
+POST 	/administracao/campus/cadastro						controllers.CampusController.cadastrar()
+GET 	/administracao/campus/:id/editar					controllers.CampusController.formularioEdicao(id: Long)
+POST 	/administracao/campus/:id/editar					controllers.CampusController.editar(id: Long)
+GET 	/administracao/campus/:id/excluir					controllers.CampusController.deletar(id: Long)
+
+
+# AdministraÃ§Ã£o dos Grupos de Pesquisa
+GET 	/administracao/grupo-pesquisa/cadastro						controllers.GrupoPesquisaController.formulario()
+POST 	/administracao/grupo-pesquisa/cadastro						controllers.GrupoPesquisaController.cadastrar()
+GET 	/administracao/grupo-pesquisa/:id/editar					controllers.GrupoPesquisaController.formularioEdicao(id: Long)
+POST 	/administracao/grupo-pesquisa/:id/editar					controllers.GrupoPesquisaController.editar(id: Long)
+GET 	/administracao/grupo-pesquisa/:id/excluir					controllers.GrupoPesquisaController.deletar(id: Long)
+
+
+# Administração dos Programas de Bolsas
+GET 	/administracao/programas-bolsas/cadastro					controllers.Bolsas.formulario()
+POST 	/administracao/programas-bolsas/cadastro					controllers.Bolsas.cadastrar()
+GET 	/administracao/programas-bolsas/:id/editar					controllers.Bolsas.formularioEdicao(id: Long)
+POST 	/administracao/programas-bolsas/:id/editar					controllers.Bolsas.editar(id: Long)
+GET 	/administracao/programas-bolsas/:id/excluir					controllers.Bolsas.deletar(id: Long)
+
 
 
 # AdministraÃ§Ã£o dos Professores, Servidores, Bolsistas
