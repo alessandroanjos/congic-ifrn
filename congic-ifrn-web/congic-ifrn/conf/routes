@@ -23,6 +23,7 @@ GET     /sair-do-sistema            						controllers.Sessions.efetuarlogout()
 
 # AdministraÃ§Ã£o do Sistema
 GET     /administracao/admin								controllers.Administracao.index()
+POST     /administracao/arquivo                              controllers.Administracao.save()
 
 
 # Campus
@@ -45,6 +46,9 @@ GET     /administracao/area-conhecimento                            controllers.
 GET 	/administracao/area-conhecimento/:id/visualizar				controllers.AreasConhecimentoController.visualizar(id: Long)
 
 
+# Areas Específicas de conhecimento
+GET     /administracao/area-especificas                             controllers.AreasEspecificasController.index()
+GET 	/administracao/area-especificas/:id/visualizar				controllers.AreasEspecificasController.visualizar(id: Long)
 
 
 # Artigos
@@ -94,6 +98,16 @@ POST 	/administracao/area-conhecimento/cadastro					controllers.AreasConheciment
 GET 	/administracao/area-conhecimento/:id/editar					controllers.AreasConhecimentoController.formularioEdicao(id: Long)
 POST 	/administracao/area-conhecimento/:id/editar					controllers.AreasConhecimentoController.editar(id: Long)
 GET 	/administracao/area-conhecimento/:id/excluir				controllers.AreasConhecimentoController.deletar(id: Long)
+
+
+# AdministraÃ§Ã£o das Areas de Especificas de Conhecimento
+GET 	/administracao/area-especificas/cadastro					controllers.AreasEspecificasController.formulario()
+POST 	/administracao/area-especificas/cadastro					controllers.AreasEspecificasController.cadastrar()
+GET 	/administracao/area-especificas/:id/editar					controllers.AreasEspecificasController.formularioEdicao(id: Long)
+POST 	/administracao/area-especificas/:id/editar					controllers.AreasEspecificasController.editar(id: Long)
+GET 	/administracao/area-especificas/:id/excluir				    controllers.AreasEspecificasController.deletar(id: Long)
+
+
 
 
 # AdministraÃ§Ã£o dos Professores, Servidores, Bolsistas

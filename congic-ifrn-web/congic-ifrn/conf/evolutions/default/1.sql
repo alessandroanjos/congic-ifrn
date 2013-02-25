@@ -35,6 +35,7 @@ create table artigo (
   objetivos                 longtext,
   metodologia               longtext,
   referencias               longtext,
+  arquivo                   BLOB NOT NULL,
   constraint pk_artigo primary key (id))
 ;
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -93,7 +94,14 @@ public class Artigo extends Model{
 		this.progressoArtigo = new ArrayList<ArtigoAvaliado>();
 	}
 	
-	
+	/*
+	 *http://docs.oracle.com/javaee/6/api/javax/persistence/Lob.html
+	 */
+	     @Lob 
+	     @Basic
+   		 @Column(name="arquivo", columnDefinition="BLOB NOT NULL")
+         public byte[] arquivo;
+	 
 	
 	
 
@@ -242,6 +250,14 @@ public class Artigo extends Model{
 	}
 
 	
+
+	public byte[] getArquivo() {
+		return arquivo;
+	}
+
+	public void setArquivo(byte[] arquivo) {
+		this.arquivo = arquivo;
+	}
 
 	public static Finder<Long, Artigo> find = new Finder<Long, Artigo>(Long.class, Artigo.class);
 
