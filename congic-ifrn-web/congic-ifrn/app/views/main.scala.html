@@ -45,7 +45,7 @@
     </head>
     <body>
     
-    @*
+    
 
   
    
@@ -59,19 +59,19 @@
 			@menuAdmin()
    	    }
    	    
-   	    @if(getUsuarioLogado().isAvaliador)	{
-   	    	@menuAvaliador() 	
+   	    @if(getUsuarioLogado().isBolsista)	{
+   	    	@menuBolsista() 	
    	    }
    	    
-   	    @if(getUsuarioLogado().isGestor){
-   	        @menuGestor()
+   	    @if(getUsuarioLogado().isServidor){
+   	        @menuServidor()
    	    }
     	
     } else {
     		@menuPublico()
     }
 
- *@
+ 
 	<div class="container">
 
           <div class="content">
