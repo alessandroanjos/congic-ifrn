@@ -12,7 +12,7 @@ import play.mvc.Result;
 
 
 /**
- * Classe responsÃ¡vel pelo controle da autenticaÃ§Ã£o dos usuÃ¡rios.
+ * Classe responsÃ¡vel pelo controle da autenticao dos usuÃ¡rios.
  * 
  * @author Alessandro
  */
@@ -37,7 +37,7 @@ public class Sessions extends Controller {
 		
 		System.out.println("LOGIN:"+login);
 		if (loginForm.hasErrors()) {
-			flash("error","Login ou Senha InvÃ¡lida(s). Tente novamente!");
+			flash("error","Login ou Senha Inválido(s). Tente novamente!");
 			return redirect(routes.Sessions.login());
 		} else {
 			Usuario usuario = Usuario.find.where().ilike("login", login).findUnique();

@@ -27,7 +27,7 @@ public class LoginForm {
 
 	public String validate() throws NoSuchAlgorithmException {
         if (Usuario.autenticar(login, senha) == null) {
-        	return "Login ou Senha InvÃ¡lida(s). Tente novamente!";
+        	return "Login ou Senha InvÃ¡lido(s). Tente novamente!";
         }
         
         return null;
