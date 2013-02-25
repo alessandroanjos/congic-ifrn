@@ -24,11 +24,12 @@ public class Administracao extends Controller {
 
 	public static Result save() {
 		MultipartFormData body = request().body().asMultipartFormData();
-		FilePart picture = body.getFile("arquivo_artigo");
+		FilePart picture = body.getFile("arquivo");
 		Form<Artigo> productForm = form(models.Artigo.class).bindFromRequest();
 		models.Artigo newProduct = productForm.get();
 		if (picture != null) {
 			File file = picture.getFile();
+			System.out.println("Passei aq");
 			try {
 				newProduct.arquivo = IOUtils.toByteArray(new FileInputStream(file));
 			} catch (Exception e) {
@@ -36,6 +37,6 @@ public class Administracao extends Controller {
 			}
 		}
 		newProduct.save();//saveOrUpdate();
-		return redirect(routes.Artigos.submeter());
+		return redirect(routes.Artigos.meusArtigos());
 	}
 }

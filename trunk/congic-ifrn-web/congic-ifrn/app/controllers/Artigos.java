@@ -45,8 +45,7 @@ public class Artigos extends Controller{
 	
 	public static Result submeter() {
 		
-		MultipartFormData body = request().body().asMultipartFormData();
-		FilePart article = body.getFile("arquivo");		
+		
 		
 		Form<Artigo> form = form(Artigo.class).bindFromRequest();
 		Long idGrupoPesquisa = Long.valueOf(form.data().get("idGrupoPesquisa"));
@@ -63,7 +62,8 @@ public class Artigos extends Controller{
 			return badRequest(views.html.Artigos.formulario.render(form, gruposPesquisa, areaConhecimento, areaEspecifica));
 		}
 		
-	
+		MultipartFormData body = request().body().asMultipartFormData();
+		FilePart article = body.getFile("arquivo");		
 				
 		
 		//return redirect(routes.Artigos.index());
@@ -79,6 +79,7 @@ public class Artigos extends Controller{
 		
 		if (article != null) {
 			File file = article.getFile();
+			System.out.println("Passei aq");
 			try {
 				artigo.arquivo = IOUtils.toByteArray(new FileInputStream(file));
 			} catch (Exception e) {
