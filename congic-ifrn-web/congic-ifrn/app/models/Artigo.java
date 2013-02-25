@@ -89,6 +89,8 @@ public class Artigo extends Model{
 	@OneToMany
 	public List<ArtigoAvaliado> progressoArtigo;
 	
+	public int usuarioAvaliar;
+	
 	public Artigo(){
 		
 		this.progressoArtigo = new ArrayList<ArtigoAvaliado>();
@@ -248,8 +250,14 @@ public class Artigo extends Model{
 	public void setProgressoArtigo(List<ArtigoAvaliado> progressoArtigo) {
 		this.progressoArtigo = progressoArtigo;
 	}
-
 	
+	public int getUsuarioAvaliar() {
+		return usuarioAvaliar;
+	}
+
+	public void setUsuarioAvaliar(int usuarioAvaliar) {
+	    this.usuarioAvaliar = usuarioAvaliar;
+	}	
 
 	public byte[] getArquivo() {
 		return arquivo;
