@@ -1,4 +1,4 @@
-@(formulario: Form[Artigo], gruposPesquisas: List[GrupoPesquisa], campus: List[Campus], areasConhecimento: List[AreaConhecimento], areasEspecificas: List[AreaEspecifica])
+@(formulario: Form[Artigo], gruposPesquisas: List[GrupoPesquisa], areasConhecimento: List[AreaConhecimento], areasEspecificas: List[AreaEspecifica])
 
 @import tags._
 
@@ -14,7 +14,7 @@
 				<h1>SubmissÃ£o de Artigo</h1>
 			</div>
 			
-			@helper.form(action = routes.Artigos.submeter(), 'style -> "margin:0;"){
+			@helper.form(action = routes.Artigos.submeter(), 'style -> "margin:0;", 'enctype -> "multipart/form-data"){
 			
 			
 			    @helper.inputText(formulario("autorDois"), 'id -> "autorDois", 'class -> "span8", '_label -> "Nome de Autor 2: ", '_showConstraints -> false, '_showErros -> true)
@@ -24,7 +24,7 @@
 				@helper.inputText(formulario("titulo"), 'id -> "titulo", 'class -> "span8", '_label -> "TÃ­tulo do Projeto: ", '_showConstraints -> false, '_showErros -> true)
 				
 				<div class="clearfix" id="idCampus_field">
-					<label for="idGrupoPesquisa">Edital do Projeto:</label>
+					<label for="idGrupoPesquisa">Grupo de Pesquisa:</label>
 					<div class="input">
 						<select id="idGrupoPesquisa" name="idGrupoPesquisa" class="span5">
 							@for(grupo <- gruposPesquisas) {
@@ -37,9 +37,9 @@
 				</div>
 				
 				<div class="clearfix" id="idCampus_field">
-					<label for="idCampus">Escolha a Area de Conhecimento do Artigo:</label>
+					<label for="idAreaConhecimento">Escolha a Area de Conhecimento do Artigo:</label>
 					<div class="input">
-						<select id="idCampus" name="idCampus" class="span5">
+						<select id="idAreaConhecimento" name="idAreaConhecimento" class="span5">
 							@for(area <- areasConhecimento) {
 							  <option value="@area.id">@area.nome</option>
 							}						
@@ -50,9 +50,9 @@
 				</div>
 				
 				<div class="clearfix" id="idCampus_field">
-					<label for="idCampus">Escolha a Area de Específica do Artigo:</label>
+					<label for="idAreaEspecifica">Escolha a Area de Específica do Artigo:</label>
 					<div class="input">
-						<select id="idCampus" name="idCampus" class="span5">
+						<select id="idAreaEspecifica" name="idAreaEspecifica" class="span5">
 							@for(area <- areasEspecificas) {
 							  <option value="@area.id">@area.nome</option>
 							}						
@@ -72,7 +72,7 @@
 				
 				<p>
 				<label>Insira o artigo no disco:</label>
-				    <input type="file" name="arquivo_artigo">
+				    <input type="file" name="arquivo">
 			   </p>
 				<button type="submit" class="btn btn-primary">Submeter Artigo</button>
 				&nbsp;
