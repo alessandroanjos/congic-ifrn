@@ -1,0 +1,62 @@
+@(artigos: List[Artigo])
+
+
+@import tags._
+@import helper._
+@import helpers.Seguranca.InformacoesUsuarioHelper._
+
+
+@main  {
+	<div class="row">
+		<div class="span12">
+			<div class="page-header" style="overflow:hidden;">
+				<h1 style="float:left;"> Meus Artigos Submetidos </h1>
+				
+							
+				@if(isLogado()) {
+					@if(getUsuarioLogado().isProfessor) {
+					<div style="float:right; position:relative; top:8px;">
+						<a href="@routes.Artigos.formulario" class="btn"><i class="icon-plus"></i> Submeter Novo Artigo</a>
+					</div>
+					}
+				}	
+				
+			</div>
+			
+			@if(artigos.size == 0) {
+				<h3>Nenhum artigo foi submetido.</h3>			
+			} else {
+			
+			<table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  
+                  <th>Artigo</th>
+                  <th>Download</th>
+                  <th>Situacao</th>
+                </tr>
+              </thead>
+              <tbody>
+              @getUsuarioLogado().nome
+              
+               	@for(artigo  <- artigos) {
+                <tr>
+               		<td style="width:30%;">
+               			@artigo.getTitulo
+               		</td>
+               		<td>
+               		   
+               		</td>
+               	    <td>
+               	       
+               	    </td>
+               	  
+                </tr>
+				}
+				
+              </tbody>
+            </table>
+           }
+		</div>
+	</div>	
+}

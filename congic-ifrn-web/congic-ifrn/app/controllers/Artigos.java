@@ -39,6 +39,10 @@ public class Artigos extends Controller{
 		{
 			return ok(views.html.Artigos.index.render(artigos, professores));
 		}
+		if(InformacoesUsuarioHelper.getUsuarioLogado().isProfessor)
+		{
+			return ok(views.html.Artigos.index.render(artigos, professores));
+		}
 		return ok(views.html.Administrador.index.render());
 	}
 	
@@ -130,7 +134,13 @@ public class Artigos extends Controller{
 	}
 	
 	public static Result meusArtigos(){
-		return TODO;
+        
+		Long autorId = InformacoesUsuarioHelper.getUsuarioLogado().id;
+		
+		List<Artigo> projetos = Artigo.find.where().eq("autor_um_id", autorId).findList();//InformacoesUsuarioHelper.getUsuarioLogado().projetos;
+		
+		
+		return ok(views.html.Artigos.visualizar4.render(projetos));
 	}
 	
 	public static Result selecionarAvaliador(Long id){
