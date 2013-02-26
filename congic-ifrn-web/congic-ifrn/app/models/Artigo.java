@@ -89,7 +89,7 @@ public class Artigo extends Model{
 	@OneToMany
 	public List<ArtigoAvaliado> progressoArtigo;
 	
-	public int usuarioAvaliar;
+	public Long usuarioAvaliar;
 	
 	/*
 	 * http://docs.oracle.com/javaee/6/api/javax/persistence/Lob.html
@@ -259,11 +259,11 @@ public class Artigo extends Model{
 		this.progressoArtigo = progressoArtigo;
 	}
 	
-	public int getUsuarioAvaliar() {
+	public Long getUsuarioAvaliar() {
 		return usuarioAvaliar;
 	}
 
-	public void setUsuarioAvaliar(int usuarioAvaliar) {
+	public void setUsuarioAvaliar(Long usuarioAvaliar) {
 	    this.usuarioAvaliar = usuarioAvaliar;
 	}	
 
