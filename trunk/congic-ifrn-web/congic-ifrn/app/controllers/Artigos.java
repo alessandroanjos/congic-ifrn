@@ -12,6 +12,7 @@ import models.AreaConhecimento;
 import models.AreaEspecifica;
 import models.Artigo;
 import models.Campus;
+import models.Usuario;
 
 import models.GrupoPesquisa;
 import models.Artigo;
@@ -27,7 +28,18 @@ import play.mvc.Http.MultipartFormData.FilePart;
 public class Artigos extends Controller{
 
 	public static Result index(){
-		return TODO;
+		Long meuId = InformacoesUsuarioHelper.getUsuarioLogado().id;
+		
+		List<Artigo> artigos = Artigo.find.where().eq("usuario_avaliar", meuId).findList();
+		
+		List<Usuario> professores  = Usuario.find.where().eq("isProfessor", true).findList();
+		//List<Artigo> artigos = Artigo.find.findList();
+		
+		if (InformacoesUsuarioHelper.getUsuarioLogado().isAdministrador)
+		{
+			return ok(views.html.Artigos.index.render(artigos, professores));
+		}
+		return ok(views.html.Administrador.index.render());
 	}
 	
 	public static Result visualizar(Long id) {
@@ -51,7 +63,7 @@ public class Artigos extends Controller{
 		Long idGrupoPesquisa = Long.valueOf(form.data().get("idGrupoPesquisa"));
 		Long idAreaConhecimento = Long.valueOf(form.data().get("idAreaConhecimento"));
 		Long idAreaEspecifica = Long.valueOf(form.data().get("idAreaEspecifica"));
-	//	Long idCampus = Long.parseLong(form.data().get(InformacoesUsuarioHelper.getUsuarioLogado().campus));
+		//Long idCampus = Long.parseLong(form.data().get(InformacoesUsuarioHelper.getUsuarioLogado().campus));
 		
 		if(form.hasErrors()) {
 			List<GrupoPesquisa> gruposPesquisa  = GrupoPesquisa.find.findList();
@@ -74,7 +86,7 @@ public class Artigos extends Controller{
 		artigo.campus = InformacoesUsuarioHelper.getUsuarioLogado().campus;
 		artigo.areaConhecimento = AreaConhecimento.find.byId(idAreaConhecimento);
 		artigo.areaEspecifica = AreaEspecifica.find.byId(idAreaEspecifica);
-		artigo.usuarioAvaliar = 1;
+		artigo.usuarioAvaliar = 1L;
 		
 		
 		if (article != null) {
@@ -119,5 +131,21 @@ public class Artigos extends Controller{
 	
 	public static Result meusArtigos(){
 		return TODO;
+	}
+	
+	public static Result selecionarAvaliador(Long id){
+		
+		Form<Artigo> form = form(Artigo.class).bindFromRequest();
+		
+		Long idProfessor = Long.valueOf(form.data().get("idProfessores"));
+		Artigo artigo = Artigo.find.byId(id);
+		
+		artigo.setUsuarioAvaliar(idProfessor);
+		
+		artigo.update();
+		
+		flash().put("success", "Artigo \""+ artigo.titulo +"\" Selecionado para Avaliação com sucesso!");
+		
+		return redirect(routes.Artigos.index());
 	}
 }
