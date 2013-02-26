@@ -23,10 +23,7 @@
 					  
 					</h4>
 				</div>
-			</div>
-			
-		
-			
+			</div>			
 			
 			@if(artigos.size == 0) {
 				<h3>Nenhum artigo submetido.</h3>			
@@ -41,19 +38,10 @@
 								<a href="@routes.Artigos.visualizar(artigo.id)">
 									@artigo.titulo
 								</a>
-							</h2>
-							
-				               		
-							
-							<div style="font-size:12px;">
-								@* Nível de Dificuldade: <strong>@exercicio.nivelExercicio</strong> <br/> *@
-								
-							</div>						
-						</div>
+							</h2>												
+						</div>						
 						
-						
-						<div style="float:right; padding-top:15px;">
-							
+						<div style="float:right; padding-top:15px;">							
 							
 							<div class="clearfix" id="idCampus_field">
 					             <label for="idProfessores">Professores:</label>
@@ -71,21 +59,16 @@
 						            <span class="help-inline"></span>
 						            <span class="help-block"></span>
 					              </div>
-				           </div>
-				           
+				           </div>	           
 				           <button type="submit" class="btn btn-primary">Selecionar o Avaliador</button>
-				           
-							
-						</div>
-						
+						</div>						
 					</div>
-					<hr>
+				   <hr>
 				</div>
 				}
-			}
-			
+			}			
 		}
-		</div>
+	   </div>
 	</div>	
 
 		}
@@ -117,20 +100,14 @@
 								<a href="@routes.Artigos.visualizar(artigo.id)">
 									@artigo.titulo
 								</a>
-							</h2>						
-				          					
+							</h2>										          					
 						</div>
 					</div>
 				</div>
 				}
 			}
 		</div>
-	</div>	
-		
-		
-		}
-		
-		
+	</div>			
+		}		
     }
-
 }
