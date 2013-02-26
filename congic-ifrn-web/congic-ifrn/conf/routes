@@ -52,11 +52,11 @@ GET		/administracao/artigos/avaliados           		    controllers.Artigos.meusAr
 GET 	/administracao/artigos/meus-artigos         		controllers.Artigos.meusArtigos() 
 
 # Administracao dos Artigos
-#GET 	/administracao/artigos/:id/editar					controllers.Artigos.formularioEdicao(id: Long)
-#POST 	/administracao/artigos/:id/editar					controllers.Artigos.editar(id: Long)
-#GET 	/administracao/artigos/:id/excluir					controllers.Artigos.deletar(id: Long)
-#GET  	/administracao/artigos/:id/avaliar                 controllers.Artigos.formularioAvaliacao(id: Long)
-#POST 	/administracao/artigos/avaliar                     controllers.Artigos.avaliacaoArtigo(id: Long)
+GET 	/administracao/artigos/:id/editar					controllers.Artigos.formularioEdicao(id: Long)
+POST 	/administracao/artigos/:id/editar					controllers.Artigos.editar(id: Long)
+GET 	/administracao/artigos/:id/excluir					controllers.Artigos.deletar(id: Long)
+GET  	/administracao/artigos/:id/avaliar                 controllers.Artigos.formularioAvaliacao(id: Long)
+POST 	/administracao/artigos/avaliar                     controllers.Artigos.avaliacaoArtigo(id: Long)
 
 # AdministraÃ§Ã£o dos Campus
 GET 	/administracao/campus/cadastro						controllers.CampusController.formulario()

@@ -1,0 +1,30 @@
+@(formulario: Form[ArtigoAvaliado], artigo: Artigo)
+
+
+@import tags._
+@import helper.twitterBootstrap._
+@import helper._
+@import helper.{FieldConstructor}
+
+
+@main {
+
+<h1><i>Formulario de Avaliacao do Artigo Denominado:</i><br><br></h1> <h2>"@artigo.getTitulo"</h2>
+
+<br>
+<br>
+<br>
+
+   @helper.form(action = routes.Artigos.avaliacaoArtigo(artigo.id), 'style -> "margin:0;"){
+
+        @*  @helper.inputText(formulario("pontuacaoObtida"), 'id -> "pontuacaoObtida", 'rows -> "15", 'class -> "span2", '_label -> "Pontuação do Projeto: ", '_showConstraints -> false, '_showErrors -> true) *@
+   
+     <button type="submit" class="btn btn-primary">Enviar</button>
+     
+     <a class="btn" href="@routes.Artigos.visualizar(artigo.id)" >Cancelar</a>
+				
+   
+   }
+   
+
+}

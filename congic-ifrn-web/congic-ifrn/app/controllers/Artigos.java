@@ -11,6 +11,7 @@ import javax.persistence.criteria.CriteriaBuilder.In;
 import models.AreaConhecimento;
 import models.AreaEspecifica;
 import models.Artigo;
+import models.ArtigoAvaliado;
 import models.Campus;
 import models.Usuario;
 
@@ -47,7 +48,25 @@ public class Artigos extends Controller{
 	}
 	
 	public static Result visualizar(Long id) {
-		return TODO;
+		
+		Artigo artigo = Artigo.find.byId(id);
+		
+		if (InformacoesUsuarioHelper.getUsuarioLogado().isProfessor || InformacoesUsuarioHelper.getUsuarioLogado().isAdministrador ) 
+		{
+			
+			if(artigo.campus.id != InformacoesUsuarioHelper.getUsuarioLogado().campus.id){
+				return ok(views.html.Artigos.visualizar2.render(artigo));
+			}else{
+				flash().put("error", "Projeto de mesmo campus. Tente novamente!");
+				redirect(routes.Artigos.index());
+			}
+			
+			return ok(views.html.Artigos.visualizar.render(artigo));
+		}
+		else{
+			return ok(views.html.Artigos.visualizar.render(artigo));
+		}
+		
 	}
 	
 	public static Result formulario() {	
@@ -122,7 +141,20 @@ public class Artigos extends Controller{
 	}
 	
 	public static Result formularioAvaliacao(Long id) {
-		return TODO;
+		/*Form<ProjetoForm> form = form(ProjetoForm.class);*/
+		Artigo artigo = Artigo.find.byId(id);
+		
+		/*ProjetoAvaliado projetoAvaliado = ProjetoAvaliado.find.byId(id);*/
+		
+	//  if (InformacoesUsuarioHelper.isProjetoAvaliado(id)) {
+	//	   flash().put("error", "Você Já avaliou este projeto!");
+	//	   return badRequest(views.html.Projetos.visualizar2.render(projeto));
+	//	} else if(InformacoesUsuarioHelper.isCampusIgual(id)==false){
+	//		flash().put("error", "Você não tem permissão para avaliar este projeto!");
+	//		return ok(views.html.Artigos.visualizar.render(projeto));
+	//	}
+		
+		return ok(views.html.Artigos.formularioAvaliacao.render(form(ArtigoAvaliado.class), artigo));
 	}
 	
 	public static Result avaliacaoArtigo(Long id) {

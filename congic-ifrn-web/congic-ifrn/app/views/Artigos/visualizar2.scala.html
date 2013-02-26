@@ -1,0 +1,127 @@
+@(artigo: Artigo)
+
+@import tags._
+@import helper._
+@import helper.twitterBootstrap._
+@import helpers.Seguranca.InformacoesUsuarioHelper._
+
+
+@main {
+
+<div class="row">
+		<div class="span12">
+			<div class="page-header" style="overflow:hidden;">
+			
+			
+				<h1 class="pull-left">
+					@artigo.titulo
+										
+						<br/>
+											
+		    @*			
+					
+					@if(isProjetoAvaliado(projeto.id)) {
+								<span class="label label-success">Avaliado - @getProjetoAvaliado(projeto.id).pontuacaoObtida Pontos Obtidos!</span>
+					 } else {
+							    <span class="label label-important">Pendente!</span>
+					        }
+		   *@      
+					 	
+											
+				</h1>
+				
+				@if(isLogado()) {
+					@if(getUsuarioLogado().isAdministrador) {
+					<div style="float:right; position:relative; top:8px;">
+						<a href="@routes.Artigos.editar(artigo.id)" class="btn"><i class="icon-edit"></i> Editar</a>
+						<a href="@routes.Artigos.deletar(artigo.id)" onclick="return confirm('Deseja realmente excluir o projeto &quot;@artigo.titulo&quot;?')" class="btn"><i class="icon-remove"></i> Excluir</a>
+						}
+					
+					@if(getUsuarioLogado().isProfessor || getUsuarioLogado().isAdministrador) {
+					 @*<div style=" position:relative; top:35px;">*@
+					 <div style="float:right; padding-top:15px;">	
+					    <a href="@routes.Artigos.formularioAvaliacao(artigo.id)" class="btn btn-danger"><i class="icon-edit"></i> Avaliar esse Artigo </a>
+					 </div>
+					 }
+					
+					</div>
+					
+				}
+			</div>
+			
+			<div style="float:right; padding-top:5px;"">
+				<div class="span5">
+					
+					<div class="row">
+						<div class="span5">
+							<h3 class="page-header">Resumo:</h3>
+							<pre>
+								@artigo.resumo
+							</pre>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="span5">
+							<h3 class="page-header">Introdução:</h3>
+							<pre>
+								@artigo.introducao
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="span5 offset1">
+						<div class="span5">
+							<h3 class="page-header"> Fundamentação Teorica: </h3>
+							<pre>
+								@artigo.fundamentacaoTeorica
+							</pre>
+						</div>
+						
+						<div class="span5">
+							<h3 class="page-header"> Justifivativa: </h3>
+							<pre>
+								@artigo.justificativa
+							</pre>
+						</div>
+				 </div>
+				 
+				 <div class="span5">
+					<div class="row">
+						<div class="span5">
+							<h3 class="page-header">Objetivos:</h3>
+							<pre>
+								@artigo.objetivos
+							</pre>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="span5">
+							<h3 class="page-header">Referencias:</h3>
+							<pre>
+								
+								@artigo.referencias
+							</pre>
+						</div>
+					</div>
+				</div>
+								 
+				 <div class="span5 offset1">
+												
+						<div class="span5">
+							<h3 class="page-header"> Metodologia: </h3>
+							<pre>
+								@artigo.metodologia
+							</pre>
+						</div>
+				 </div>
+					
+				</div>
+			</div>
+		</div>
+	</div>	
+
+
+}
