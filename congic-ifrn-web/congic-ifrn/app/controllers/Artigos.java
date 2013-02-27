@@ -51,7 +51,7 @@ public class Artigos extends Controller{
 		
 		Artigo artigo = Artigo.find.byId(id);
 		
-		if (InformacoesUsuarioHelper.getUsuarioLogado().isProfessor || InformacoesUsuarioHelper.getUsuarioLogado().isAdministrador ) 
+		if (InformacoesUsuarioHelper.getUsuarioLogado().isProfessor) 
 		{
 			
 			if(artigo.campus.id != InformacoesUsuarioHelper.getUsuarioLogado().campus.id){
@@ -63,7 +63,12 @@ public class Artigos extends Controller{
 			
 			return ok(views.html.Artigos.visualizar.render(artigo));
 		}
-		else{
+		
+		else if( InformacoesUsuarioHelper.getUsuarioLogado().isAdministrador ){
+		
+			return ok(views.html.Artigos.visualizar2.render(artigo));
+			
+		} else {
 			return ok(views.html.Artigos.visualizar.render(artigo));
 		}
 		
