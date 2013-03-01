@@ -57,7 +57,7 @@ public class Artigos extends Controller{
 			if(artigo.campus.id != InformacoesUsuarioHelper.getUsuarioLogado().campus.id){
 				return ok(views.html.Artigos.visualizar2.render(artigo));
 			}else{
-				flash().put("error", "Projeto de mesmo campus. Tente novamente!");
+				flash().put("error", "Projeto de mesmo Câmpus. Tente novamente!");
 				redirect(routes.Artigos.index());
 			}
 			
