@@ -1,5 +1,7 @@
 package models;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +51,7 @@ public class Artigo extends Model{
 	
 	
 	@Required(message="O campo deve ser preenchido.")
+	@Column(unique=true)
 	public String titulo;
 	
 	@Lob
@@ -91,6 +94,7 @@ public class Artigo extends Model{
 	
 	public Long usuarioAvaliar;
 	
+	
 	/*
 	 * http://docs.oracle.com/javaee/6/api/javax/persistence/Lob.html
 	 */
@@ -99,11 +103,39 @@ public class Artigo extends Model{
 	@Column(name = "arquivo", columnDefinition = "BLOB NOT NULL")
 	@Required(message="Não feito o uploud do arquivo.")
 	public byte[] arquivo;
+
+	public URI urlDownload;
 	
+	
+	
+	public URI getUrlDownload() {
+		return urlDownload;
+	}
+
+
+
+
+
+
+
+
+
+	public void setUrlDownload(URI urlDownload) {
+		this.urlDownload = urlDownload;
+	}
+
+
+
+
+
+
+
+
+
 	public Artigo(){
 		
 		this.progressoArtigo = new ArrayList<ArtigoAvaliado>();
-		arquivo = new byte[999999];
+		arquivo = new byte[20 * 1024 * 1024];
 		
 	}
 	
@@ -274,7 +306,6 @@ public class Artigo extends Model{
 	public void setArquivo(byte[] arquivo) {
 		this.arquivo = arquivo;
 	}
-
 	public static Finder<Long, Artigo> find = new Finder<Long, Artigo>(Long.class, Artigo.class);
 
 }
