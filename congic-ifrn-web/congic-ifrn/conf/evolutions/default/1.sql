@@ -37,6 +37,8 @@ create table artigo (
   referencias               longtext,
   usuario_avaliar           bigint,
   arquivo                   BLOB NOT NULL,
+  url_download              varchar(255),
+  constraint uq_artigo_titulo unique (titulo),
   constraint pk_artigo primary key (id))
 ;
 

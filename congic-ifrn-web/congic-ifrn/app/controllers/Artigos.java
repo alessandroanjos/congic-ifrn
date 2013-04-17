@@ -20,6 +20,8 @@ import models.Artigo;
 
 import org.apache.commons.io.IOUtils;
 
+import com.mysql.jdbc.Blob;
+
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -116,12 +118,18 @@ public class Artigos extends Controller{
 		artigo.areaEspecifica = AreaEspecifica.find.byId(idAreaEspecifica);
 		artigo.usuarioAvaliar = 1L;
 		
-		
+		Blob b = null;
+		//Suporta um pouco mais de 60Kb
 		if (article != null) {
 			File file = article.getFile();
-			System.out.println("Passei aq");
+
 			try {
-				artigo.arquivo = IOUtils.toByteArray(new FileInputStream(file));
+				byte barr[]= new byte[(int)file.length()];
+				//barr=b.getBytes(1,(int)b.length()); 
+				
+				 barr= IOUtils.toByteArray(new FileInputStream(file));
+				 
+				 artigo.arquivo = barr;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -180,19 +188,39 @@ public class Artigos extends Controller{
 		return ok(views.html.Artigos.visualizar4.render(projetos));
 	}
 	
-	public static Result selecionarAvaliador(Long id){
+	public static Result selecionarAvaliador(Long id) throws Exception {
 		
-		Form<Artigo> form = form(Artigo.class).bindFromRequest();
+		try {
+			Form<Artigo> form = form(Artigo.class).bindFromRequest();
+			
+			Long idProfessor = Long.valueOf(form.data().get("idProfessores"));
+			Artigo artigo = Artigo.find.byId(id);
+			
+			artigo.setUsuarioAvaliar(idProfessor);
+			
+			artigo.update();
+			
+			flash().put("success", "Artigo \""+ artigo.titulo +"\" Selecionado para Avaliação com sucesso!");
+			
+			return redirect(routes.Artigos.index());
+			
+						
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return internalServerError("Comportamento Inesperado..");
+		}
 		
-		Long idProfessor = Long.valueOf(form.data().get("idProfessores"));
+	}
+	
+	public static Result getDocumento(Long id) {
 		Artigo artigo = Artigo.find.byId(id);
-		
-		artigo.setUsuarioAvaliar(idProfessor);
-		
-		artigo.update();
-		
-		flash().put("success", "Artigo \""+ artigo.titulo +"\" Selecionado para Avaliação com sucesso!");
-		
-		return redirect(routes.Artigos.index());
+		if (artigo != null) {
+			response().setContentType("application/pdf");
+			response().setHeader("Content-disposition", "attachment; filename="+artigo.id+"-Documento.pdf");
+			response().setHeader("Content-Length", ""+artigo.arquivo.length);
+			return ok(artigo.arquivo);
+		}
+		return badRequest("Artigo invalido!");
 	}
 }
