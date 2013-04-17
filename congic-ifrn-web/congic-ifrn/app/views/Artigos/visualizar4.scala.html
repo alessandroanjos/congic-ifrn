@@ -32,7 +32,7 @@
                 <tr>
                   
                   <th>Artigo</th>
-                  <th>Download</th>
+                  
                   <th>Situacao</th>
                 </tr>
               </thead>
@@ -42,11 +42,9 @@
                	@for(artigo  <- artigos) {
                 <tr>
                		<td style="width:30%;">
-               			@artigo.getTitulo
+               			<a href="@routes.Artigos.getDocumento(artigo.id)">@artigo.getTitulo</a>
                		</td>
-               		<td>
-               		  <a> @artigo.getArquivo.toString()</a>
-               		</td>
+               		
                	    <td>
                	       
                	    </td>
